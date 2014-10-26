@@ -1,0 +1,17 @@
+<h1>Profile for <%= @user.username %></h1>
+
+<h3> Cheeps and Cheep Talk </h3>
+
+<div class="cheeps">
+
+  <ul>
+    <% @user.cheeps.each. do |cheep| %>
+      <li class="cheep">
+        <%= cheep.cheep_talk %>
+        <br/>
+        On <%= cheep.created_at %> by <%= cheep.user.username %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>

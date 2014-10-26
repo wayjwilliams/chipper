@@ -14,15 +14,13 @@ class CheepsController < ApplicationController
   end
 
   def post
-    @post = Cheep.new(params.require(:thought).permit(:cheep_talk))
+    @post = Cheep.new(params.require(:cheep).permit(:cheep_talk))
     @post.user = current_user
-    if @post.user = current_user
       if @post.save
         redirect_to root_path
       else
         render :index
       end
     end
-  end
 
 end

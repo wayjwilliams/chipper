@@ -8,16 +8,16 @@ class SessionsController < ApplicationController
 
     user  = User.find_by username: username
     if user.password == password
-      session[:user] = user.id
-      redirect_to rooth_path
+      session[:user_id] = user.id
+      redirect_to root_path
     else
       render :new
     end
   end
 
   def signout
-    session[:user_is] = nil
-    redirect_to rooth_path
+    session[:user_id] = nil
+    redirect_to root_path
   end
 
   def signup
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
     @user = User.new(params.require(:user).permit(:username, :password, :password_confirmation))
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root-path
+      redirect_to root_path
     else
       render :signup
     end
