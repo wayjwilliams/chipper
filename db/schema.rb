@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025213940) do
+ActiveRecord::Schema.define(version: 20141027020621) do
 
   create_table "cheeps", force: true do |t|
     t.integer  "user_id"
     t.string   "cheep_talk"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "followings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "follower_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

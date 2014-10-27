@@ -19,3 +19,15 @@
   </ul>
 
 </div>
+
+<div class="followings">
+  <ul>
+    <% @users.each do |user| %>
+      <% user.followings.each do |following| %>
+        <% if following.user_id != @current_user.username %>
+          <%= following.follower_id %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

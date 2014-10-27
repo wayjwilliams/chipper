@@ -11,6 +11,7 @@ class CheepsController < ApplicationController
     @users = User.all
     @cheeps = current_user.cheeps.order("created_at desc")
     @cheep = Cheep.new
+    @followings = Following.all
   end
 
   def post
